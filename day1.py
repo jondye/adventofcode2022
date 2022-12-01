@@ -1,9 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-def day1_1(calorie_list):
+def day1(calorie_list):
     per_elf_calories = sum_calories(val.strip() for val in calorie_list)
-    return max(per_elf_calories)
+    per_elf_calories = sorted(per_elf_calories)
+    return (per_elf_calories[-1], sum(per_elf_calories[-3:]))
 
 
 def sum_calories(calorie_list):
@@ -19,7 +20,9 @@ def sum_calories(calorie_list):
 
 def main():
     with open('input1.txt') as calorie_list:
-        print(f"The most calories held by an elf is {day1_1(calorie_list)}")
+        top_elf, top_three_elves = day1(calorie_list)
+    print(f"The most calories held by an elf is {top_elf}")
+    print(f"The top three Elves are carrying {top_three_elves} calories")
 
 
 if __name__ == '__main__':
