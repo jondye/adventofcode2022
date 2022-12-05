@@ -3,8 +3,9 @@
 
 from itertools import tee
 
+
 def day2(strategy):
-    a, b = tee(round.strip() for round in strategy) 
+    a, b = tee(round.strip() for round in strategy)
     return (
         sum(score_by_hand(val) for val in a),
         sum(score_by_outcome(val) for val in b)

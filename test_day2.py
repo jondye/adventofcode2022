@@ -10,7 +10,6 @@ from day2 import day2, score_by_hand
 from io import StringIO
 
 from hamcrest import assert_that, contains_exactly, equal_to
-import pytest
 
 
 strategy = """A Y
