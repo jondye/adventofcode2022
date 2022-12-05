@@ -5,11 +5,11 @@
 https://adventofcode.com/2022/day/2
 """
 
-from day2 import day2, score
+from day2 import day2, score_by_hand
 
 from io import StringIO
 
-from hamcrest import assert_that, equal_to
+from hamcrest import assert_that, contains_exactly, equal_to
 import pytest
 
 
@@ -21,16 +21,18 @@ C Z
 
 def test_day2():
     file_input = StringIO(strategy)
-    assert_that(day2(file_input), equal_to(15))
+    assert_that(
+        day2(file_input),
+        contains_exactly(15, 12))
 
 
-def test_score():
-    assert_that(score("A X"), equal_to(4))
-    assert_that(score("A Y"), equal_to(8))
-    assert_that(score("A Z"), equal_to(3))
-    assert_that(score("B X"), equal_to(1))
-    assert_that(score("B Y"), equal_to(5))
-    assert_that(score("B Z"), equal_to(9))
-    assert_that(score("C X"), equal_to(7))
-    assert_that(score("C Y"), equal_to(2))
-    assert_that(score("C Z"), equal_to(6))
+def test_score_by_hand():
+    assert_that(score_by_hand("A X"), equal_to(4))
+    assert_that(score_by_hand("A Y"), equal_to(8))
+    assert_that(score_by_hand("A Z"), equal_to(3))
+    assert_that(score_by_hand("B X"), equal_to(1))
+    assert_that(score_by_hand("B Y"), equal_to(5))
+    assert_that(score_by_hand("B Z"), equal_to(9))
+    assert_that(score_by_hand("C X"), equal_to(7))
+    assert_that(score_by_hand("C Y"), equal_to(2))
+    assert_that(score_by_hand("C Z"), equal_to(6))
