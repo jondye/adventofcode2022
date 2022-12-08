@@ -9,7 +9,7 @@ from day4 import day4
 
 from io import StringIO
 
-from hamcrest import assert_that, equal_to
+from hamcrest import assert_that, contains_exactly
 
 
 ranges = """2-4,6-8
@@ -22,4 +22,4 @@ ranges = """2-4,6-8
 
 
 def test_day4():
-    assert_that(day4(StringIO(ranges)), equal_to(2))
+    assert_that(day4(StringIO(ranges)), contains_exactly(2, 4))
